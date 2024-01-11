@@ -1,0 +1,10 @@
+---
+    const {post: {title , subtitle, content, created_at } } = Astro.props;
+---
+<article id="article" class="flex max-w-sm flex-col gap-2 rounded bg-[#1F2937] px-5 py-6 text-white">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gloeden%2C_Wilhelm_von_%281856-1931%29_-_n._0060_recto_-_Teatro_Greco_di_Taormina_con_autoritratto.jpg/250px-Gloeden%2C_Wilhelm_von_%281856-1931%29_-_n._0060_recto_-_Teatro_Greco_di_Taormina_con_autoritratto.jpg"  class="rounded" />
+    <h2 class="text-2xl font-bold">{title}</h2>
+    <p>{subtitle}</p>
+    <p class="text-zinc-300">{content.slice(0,100) + "..."}</p>
+    <p class="text-zinc-300">{new Date(created_at).toLocaleString() } - 5 min read</p>
+  </article>

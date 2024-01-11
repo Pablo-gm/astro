@@ -1,0 +1,25 @@
+---
+import Post from "../components/Post.astro";
+// npx json-server db.json
+const response = await fetch("http://localhost:3000/posts");
+const posts = await response.json();
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+---
+
+<DefaultLayout>
+	<h1 class="text-center text-3xl font-bold mb-6 mt-3">Mis posts</h1>
+	<div class="grid max-w-7xl mx-auto w-full justify-center justify-items-center items-center gap-4 px-2 sm:grid:cols-2 lg:grid-cols-3">
+		<Post post={{
+			title: "Primer post", 
+			subtitle: "Primer subtitle",
+			content: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, esse quisquam. ",
+			author: "Anonymous",
+			created_at: "2023-01-15T09:30:00Z",
+		}} />
+		{
+			posts.map((item) => {
+				return <Post post={item} />
+			})
+		}
+	</div>
+</DefaultLayout>
