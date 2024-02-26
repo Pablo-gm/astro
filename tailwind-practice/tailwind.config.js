@@ -10,6 +10,12 @@ module.exports = {
       colors: {
         'custom': "#E49E56"
       },
+      fontSize: {
+        base: '20px'
+      },
+      spacing: {
+        'tiny': '1px',
+      },
     },
   },
   plugins: [],
