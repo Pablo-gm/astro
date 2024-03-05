@@ -66,6 +66,41 @@ export default function Home() {
           <div className="bg-lime-600 w-10 pt-12 pb-4">03</div>
         </div>
 
+        <div className="h4">Grids</div>
+        <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-3">
+          <div className="bg-sky-500 p-3 rounded-lg text-center text-yellow-50">1</div>
+          <div className="bg-sky-500 p-3 rounded-lg text-center text-yellow-50">2</div>
+          <div className="bg-sky-500 p-3 rounded-lg text-center text-yellow-50 col-span-2">3 double span</div>
+          <div className="bg-sky-500 p-3 rounded-lg text-center text-yellow-50">4</div>
+          <div className="bg-sky-500 p-3 rounded-lg text-center text-yellow-50">5</div>
+          <div className="bg-sky-500 p-3 rounded-lg text-center text-yellow-50">6</div> 
+        </div>
+
+        <div className="grid grid-cols-6 gap-4 mt-5">
+          <div className="col-start-2 col-span-4 text-yellow-50 bg-orange-700">01</div>
+          <div className="col-start-1 col-end-3 text-yellow-50 bg-orange-700">02</div>
+          <div className="col-end-7 col-span-2 text-yellow-50 bg-orange-700">03</div>
+          <div className="col-start-1 col-end-7 text-yellow-50 bg-orange-700">04</div>
+        </div>
+
+        <div className="grid grid-rows-4 grid-flow-col gap-4 mt-5">
+          <div className="bg-red-500 text-center text-slate-100">01</div>
+          <div className="bg-red-500 text-center text-slate-100">02</div>
+          <div className="bg-red-500 text-center text-slate-100">03</div>
+          <div className="bg-red-500 text-center text-slate-100">04</div>
+          <div className="bg-red-500 text-center text-slate-100">05</div>
+          <div className="bg-red-500 text-center text-slate-100">06</div>
+          <div className="bg-red-500 text-center text-slate-100">07</div>
+          <div className="bg-red-500 text-center text-slate-100">08</div>
+          <div className="bg-red-500 text-center text-slate-100">09</div>
+        </div>
+
+        <div className="grid grid-rows-3 grid-flow-col gap-4 mt-5">
+          <div className="row-span-3 text-center text-slate-100 bg-violet-700">01</div>
+          <div className="col-span-2 text-slate-100 bg-violet-700">02</div>
+          <div className="row-span-2 col-span-2 text-slate-100 bg-violet-700">03</div>
+        </div>
+
     </div>
     
 
