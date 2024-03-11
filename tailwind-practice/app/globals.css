@@ -9,4 +9,16 @@
         @apply bg-slate-50 text-slate-600;
         font-family: "Ubuntu", sans-serif;
     }
+
+    h1 {
+        @apply mb-2 text-3xl font-bold; 
+    }
+
+    .btn {
+        @apply px-4 py-2 rounded-lg transition ease-in duration-150;
+    }
+
+    .btn-primary{
+        @apply bg-blue-600 text-white hover:bg-blue-500;
+    }
 }
