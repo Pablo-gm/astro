@@ -14,8 +14,31 @@
         @apply mb-2 text-3xl font-bold; 
     }
 
+    input, select {
+        @apply outline-none border border-slate-300 rounded-sm p-2 mb-2 ;
+    }
+
+    select {
+        @apply pr-4 ;
+    }
+
+    input[type="text"] {
+        @apply disabled:bg-slate-100 placeholder:italic ;
+    }
+
+    input[type="date"] {
+    }
+
+    input[type="checkbox"] {
+        @apply p-2 accent-purple-500 mr-1;
+    }
+
+    label {
+        @apply text-sm text-slate-700 font-medium;
+    }
+
     .btn {
-        @apply px-4 py-2 rounded-lg transition ease-in duration-150;
+        @apply px-4 py-2 rounded-lg hover:transition hover:duration-300 hover:opacity-80 disabled:bg-slate-400/30 hover:disabled:opacity-100;
     }
 
     .btn-primary{

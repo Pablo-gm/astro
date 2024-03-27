@@ -6,6 +6,31 @@ export default function Home() {
         <div className="h4 text-3xl mt-4 font-semibold">Micro design system</div>
         <h1>A H1 title</h1>
         <button className="btn btn-primary">Button primary</button>
+        <button className="btn" disabled>Button disabled</button>
+
+        <div className="mt-3">
+          <input type="text" placeholder="email" />
+        </div>
+        <input type="text"  disabled placeholder="email"  />
+
+        <div>
+          <input type="date"   />
+        </div>
+
+        <div>
+          <label><input type="checkbox" /> Checkbox</label>
+        </div>
+
+        <div className="flex items-baseline w-32">
+          <input type="checkbox" /> <label> Checkbox with flex</label>
+        </div>
+
+        <select name="cars" id="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
 
         <div className="h4 text-3xl mt-4 font-semibold">Text basics</div>
 
@@ -216,7 +241,7 @@ export default function Home() {
         <div className="flex items-center justify-center">
           <button type="button" className="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed" disabled="">
             <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
             Processing...
