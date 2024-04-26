@@ -1,0 +1,30 @@
+---
+//https://api.artic.edu/docs/#quick-start
+//https://api.artic.edu/api/v1/artworks?page=1&limit=10
+import { type APIArt } from '../types/api';
+import ArtCard from './ArtCard.astro';
+
+const res = await fetch('https://api.artic.edu/api/v1/artworks',{
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        query: {},
+        page: 1,
+        limit: 3
+    })
+});
+const { data, info, pagination, config } = await res.json() as APIArt ;
+
+console.log(data);
+---
+
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {
+        data.map( (piece) => (
+            <ArtCard title={piece.title} thumbnail={piece.thumbnail} description ={piece.description} />
+        ))
+    }
+    
+</div>
