@@ -1,19 +1,32 @@
 ---
-const {title, thumbnail, description} = Astro.props;
+const {id, title, image_id, description, artist, is_public_domain} = Astro.props;
 ---
-<div class="flex-col">
+<a
+    href=`/artwork/${id}`
+    class="rounded-lg border shadow-md bg-gray-800 border-gray-700 hover:scale-105 hover:border-gray-500 transition flex flex-col"
+>
     <picture class="flex justify-center p-4">
-        <img class="mb-5 rounded-lg" src={`${thumbnail ? thumbnail.lqip : ''}`} />
+        <img class="mb-5 rounded-lg" src={`${image_id ? `https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg` : ''}`} />
     </picture>
     <header class="p-4 flex-grow">
         <span class="text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
-            Por hacer
+            {artist}
         </span>
         <h2 class="my-2 text-2xl font-bold tracking-tight text-white">
             {title}
         </h2>
         <p class="mb-4 font-light text-gray-400">
+            <span 
+                class:list={[
+                    "text-xs font-semibold mr-2 px-2.5 py-0.5 rounded",
+                    {
+                        "text-green-800 bg-green-300" : is_public_domain,
+                        "text-yellow-800 bg-yellow-300" : !is_public_domain,
+                    }
+                ]}>
+                 {is_public_domain ? 'Is public domain' : 'Not public domain'}
+            </span>
             {description?.length > 100 ? description.slice(0,100) + "..." : description}
         </p>
     </header>
-</div>
+</a>
