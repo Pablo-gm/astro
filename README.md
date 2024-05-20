@@ -12,6 +12,9 @@ Landing page. Dark themed.
 ## Midulive one
 Project 1 midulive
 
+## Spotify clone
+Clone with React and Svelte
+
 ## Flaky-field
 Testing version 4
 
