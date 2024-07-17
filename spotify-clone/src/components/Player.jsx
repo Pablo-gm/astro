@@ -149,6 +149,7 @@ export function Player () {
     if (song) {
       // usually
       // const src = `/music/${playlist?.id}/0${song.id}.mp3`
+      // hardcoded
       const src = `/music/test.mp3`
       audioRef.current.src = src
       audioRef.current.volume = volume
