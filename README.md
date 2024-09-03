@@ -15,6 +15,9 @@ Project 1 midulive
 ## Spotify clone
 Clone with React and Svelte
 
+## Blue bar
+Project portfolio
+
 ## Flaky-field
 Testing version 4
 
