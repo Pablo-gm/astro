@@ -1,9 +1,38 @@
 ---
+import Badge from '../components/Badge.astro';
 import Layout from '../layouts/Layout.astro';
+import Linkedin from '../icons/Linkedin.astro';
+import SocialPill from '../components/SocialPill.astro';
+import Github from '../icons/Github.astro';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1>Portolio</h1>
+		<section class="w-full lg:w-[740px] mx-auto py-44">
+			<img 
+				class="rounded-full w-12 h-12"    
+				src="https://placehold.co/200" 
+				alt="portfolio photo" 
+			/>
+			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-4">
+				Hola, soy <span class="text-amber-500">UI Engineer</span>  
+				<a href="/linkedin" target="_blank" class="flex justify-center items-center">
+					<Badge>Disponible para trabajar</Badge>
+				</a>
+			</h1>
+			<h2 class="text-indigo-100 text-2xl opacity-80 text-wrap mb-6">
+				<span class="text-amber-300">+10 años de experiencia.</span> Desarrollo web y diseño de interfaces.
+			</h2>
+			<nav class="flex gap-x-2">
+				<SocialPill href="/linkedin">
+					<Linkedin class="w-6 h-6"/>
+					Linkedin
+				</SocialPill>
+				<SocialPill href="/github">
+					<Github class="w-6 h-6"/>
+					Github
+				</SocialPill>
+			</nav>
+		</section>
 	</main>
 </Layout>
