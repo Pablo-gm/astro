@@ -16,7 +16,7 @@ Project 1 midulive
 Clone with React and Svelte
 
 ## Blue bar
-Project portfolio
+Project portfolio, tabler icons, fontsource, tailwind, bg.ibelick
 
 ## Flaky-field
 Testing version 4

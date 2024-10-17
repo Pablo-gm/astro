@@ -4,13 +4,17 @@ import Layout from '../layouts/Layout.astro';
 import Linkedin from '../icons/Linkedin.astro';
 import SocialPill from '../components/SocialPill.astro';
 import Github from '../icons/Github.astro';
+import Mail from '../icons/Mail.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout 
+	title="Portfolio UI Engineer +10 años de experiencia en desarrollo web y UI design"
+	description="Personal webpage"	
+>
 	<main>
 		<section class="w-full lg:w-[740px] mx-auto py-44">
 			<img 
-				class="rounded-full w-12 h-12"    
+				class="rounded-full size-12"    
 				src="https://placehold.co/200" 
 				alt="portfolio photo" 
 			/>
@@ -20,17 +24,21 @@ import Github from '../icons/Github.astro';
 					<Badge>Disponible para trabajar</Badge>
 				</a>
 			</h1>
-			<h2 class="text-indigo-100 text-2xl opacity-80 text-wrap mb-6">
+			<h2 class="text-indigo-100 text-2xl opacity-80 text-wrap mb-8">
 				<span class="text-amber-300">+10 años de experiencia.</span> Desarrollo web y diseño de interfaces.
 			</h2>
 			<nav class="flex gap-x-2">
 				<SocialPill href="/linkedin">
-					<Linkedin class="w-6 h-6"/>
+					<Linkedin class="size-6"/>
 					Linkedin
 				</SocialPill>
 				<SocialPill href="/github">
-					<Github class="w-6 h-6"/>
+					<Github class="size-6"/>
 					Github
+				</SocialPill>
+				<SocialPill href="/github">
+					<Mail class="size-6"/>
+					Email
 				</SocialPill>
 			</nav>
 		</section>
