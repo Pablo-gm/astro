@@ -19,9 +19,71 @@ const { title, description } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<script is:inline>
+			if (
+			  localStorage.theme === 'dark' ||
+			  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+			  document.documentElement.classList.add('dark');
+			} else {
+			  document.documentElement.classList.remove('dark');
+			}
+		</script>
 	</head>
-	<body>
-		<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+	<body class="relative text-black dark:text-white">
+		<div
+			class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
+			bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
+			dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+		>
+		</div>
+		<button
+			type="button"
+			class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-200 ring-gray-300 transition-all hover:ring-2 dark:bg-gray-600 sm:ml-3"
+			id="theme-selector"
+		>
+		<span class="sr-only"
+		  >Enable <span class="dark:hidden">light</span><span class="hidden dark:inline">dark</span> mode</span
+		>
+		<svg
+		  xmlns="http://www.w3.org/2000/svg"
+		  class="h-5 w-5 stroke-gray-100 hidden dark:inline"
+		  fill="none"
+		  viewBox="0 0 24 24"
+		  stroke="currentColor"
+		>
+		  <path
+			stroke-line-cap="round"
+			stroke-line-join="round"
+			stroke-width={2}
+			d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+		  ></path>
+		</svg>
+		<svg
+		  xmlns="http://www.w3.org/2000/svg"
+		  class="h-5 w-5 stroke-gray-900 dark:hidden"
+		  fill="none"
+		  viewBox="0 0 24 24"
+		  stroke="currentColor"
+		>
+		  <path
+			stroke-line-cap="round"
+			stroke-line-join="round"
+			stroke-width={2}
+			d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+		</svg>
+	  	</button>
+		<script>
+			document.getElementById('theme-selector')?.addEventListener('click', () => {
+			if (localStorage.theme === 'dark') {
+				localStorage.theme = 'light';
+				document.documentElement.classList.remove('dark');
+			} else {
+				localStorage.theme = 'dark';
+				document.documentElement.classList.add('dark');
+			}
+			});
+		</script>
 		<Header />
 		<slot />
 	</body>
@@ -38,5 +100,65 @@ const { title, description } = Astro.props;
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+		overscroll-behavior: none;
 	}
+
+
+	@media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: rgba(255, 255, 255, 0.9);
+        }
+      }
+
+      #header-nav {
+        animation: blur linear both 0.5s;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
+      }
+
+      @keyframes blur {
+        to {
+          backdrop-filter: blur(20px);
+          border-width: 1px;
+          border-color: rgba(0, 0, 0);
+          padding: 0.25rem 0.75rem;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          background-color: rgb(229, 229, 229);
+          border-radius: 9999px;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        @keyframes blur {
+          from {
+            border: 0px;
+          }
+          to {
+            box-shadow:
+              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+              0px 0px 0 1px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border-width: 1px;
+            border-color: rgba(0, 0, 0);
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 9999px;
+          }
+        }
+      }
 </style>

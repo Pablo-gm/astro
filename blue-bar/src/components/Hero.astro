@@ -1,0 +1,41 @@
+---
+const personalAltImg = "Avatar image";
+import Badge from '../components/Badge.astro';
+import Linkedin from '../icons/Linkedin.astro';
+import SocialPill from '../components/SocialPill.astro';
+import Github from '../icons/Github.astro';
+import Mail from '../icons/Mail.astro';
+---
+
+<div class="max-w-xl">
+    <div class="flex gap-4 mb-4">
+        <img 
+            class="rounded-full size-16 mb-4 shadow-lg"    
+            src="https://placehold.co/200" 
+            alt="portfolio photo" 
+        />
+        <a href="/linkedin" target="_blank" class="flex justify-center items-center">
+            <Badge>Disponible para trabajar</Badge>
+        </a>
+    </div>
+    <h1 class="dark:text-white text-gray-800 text-5xl font-bold flex flex-row gap-x-4 pb-4">
+        Hola, soy <span class="text-amber-500">UI Engineer</span>  
+    </h1>
+    <h2 class="dark:text-indigo-100 text-2xl opacity-80 text-wrap mb-8">
+        <span class="text-amber-500 dark:text-amber-300">+10 años de experiencia.</span> Desarrollo web y diseño de interfaces.
+    </h2>
+    <nav class="flex gap-x-2">
+        <SocialPill href="/linkedin">
+            <Linkedin class="size-6"/>
+            Linkedin
+        </SocialPill>
+        <SocialPill href="/github">
+            <Github class="size-6"/>
+            Github
+        </SocialPill>
+        <SocialPill href="/github">
+            <Mail class="size-6"/>
+            Email
+        </SocialPill>
+    </nav>
+</section>
