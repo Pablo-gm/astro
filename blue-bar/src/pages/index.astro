@@ -2,10 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Briefcase from '../icons/Briefcase.astro';
+import CodeIcon from '../icons/Code.astro';
+import Profile from '../icons/Profile.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 import TitleSection from '../components/TitleSection.astro';
 import Experience from '../components/Experience.astro';
-
+import Projects from '../components/Projects.astro';
+import AboutMe from '../components/AboutMe.astro';
 ---
 
 <Layout 
@@ -16,16 +19,30 @@ import Experience from '../components/Experience.astro';
 		<SectionContainer class="py-16 md:py-36">
 			<Hero>
 				</slot>
-		  	</Hero>
+			</Hero>
 		</SectionContainer>
 		<div class="space-y-24">
 			<SectionContainer id="experiencia">
 				<TitleSection>
-				  <Briefcase class="size-8" />
-				  Experiencia laboral
+					<Briefcase class="size-8" />
+					Experiencia laboral
 				</TitleSection>
 				<Experience />
 			</SectionContainer>
+			<SectionContainer id="proyectos">
+				<TitleSection>
+					<CodeIcon class="size-10" />
+					Proyectos
+				</TitleSection>
+				<Projects />
+			</SectionContainer>
+			<SectionContainer id="sobremi">
+				<TitleSection>
+				  <Profile class="size-8" />
+				  Sobre mí
+				</TitleSection>
+				<AboutMe />
+			  </SectionContainer>
 		</div>
 	</main>
 </Layout>
