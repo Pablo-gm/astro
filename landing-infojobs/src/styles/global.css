@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #167DB7;
+    --color-accent: #FE5230;
+    --background-image-hero-pattern: url('/hero-pattern.webp');
+    --radius-5xl: 3rem;
+}

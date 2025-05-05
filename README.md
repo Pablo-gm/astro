@@ -23,3 +23,7 @@ Testing version 4
 
 ## Nike
 Tailwind practice
+
+## Extras
+Aquoosh app, image optimizer
+svgomg svg optimimzer

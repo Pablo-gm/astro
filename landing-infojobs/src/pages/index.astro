@@ -1,9 +1,18 @@
 ---
 
-import Layout from '../layouts/Layout.astro';
+import BentoInfo from '@components/BentoInfo.astro';
+import CoolJobs from '@components/CoolJobs.astro';
+import HeroSearch from '@components/HeroSearch.astro';
+import PreFooter from '@components/PreFooter.astro';
+import SocialBest from '@components/SocialBest.astro';
+import Layout from '@layouts/Layout.astro';
 
 ---
 
 <Layout title="Infojobs - Encuentra tu primer empleo">
-	<main></main>
+	<HeroSearch />
+	<BentoInfo />
+	<SocialBest />
+	<CoolJobs />
+	<PreFooter />
 </Layout>
