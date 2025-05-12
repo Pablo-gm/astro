@@ -3,6 +3,11 @@
 @theme {
     --color-primary: #167DB7;
     --color-accent: #FE5230;
+    --color-ij-black: #212121;
+    --color-ij-red: #FF421C;
+    --color-ij-green: #00A550;
+    --color-ij-blue: #E8F2F8;
+    --color-ij-yellow: #EFA500;
     --background-image-hero-pattern: url('/hero-pattern.webp');
     --radius-5xl: 3rem;
 }

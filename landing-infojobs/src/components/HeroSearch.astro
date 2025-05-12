@@ -1,15 +1,64 @@
 ---
 import SearchIcon from '@icons/Search.astro';
+import { getStudies } from "@lib/get-ij-studies"
+
+const SHORTCUTS = [
+  {
+    label: "🌱 Sin experiencia",
+    href: "#",
+    track: "explore_no_experience",
+  },
+  {
+    label: "🗓️ Findes",
+    href: "#",
+    track: "explore_weekend_jobs",
+  },
+  {
+    label: "🕒 Media jornada",
+    href: "#",
+    track: "explore_part_time",
+  },
+  {
+    label: "💼 Prácticas",
+    href: "#",
+    track: "explore_internships",
+  },
+] as const
+
+const studies = await getStudies();
+const sortedStudies = studies.sort((a,b) => a.order - b.order)
 ---
 
-<section class="mx-auto max-w-7xl px-4 w-full">
-    <div class="bg-hero-pattern mx-auto w-full rounded-3xl px-4 py-6">
+<section class="mx-auto max-w-7xl px-4 w-full mb-20">
+    <div class="bg-hero-pattern bg-cover mx-auto w-full rounded-3xl px-4 py-6">
         <h1 class="text-black/80 font-bold tracking-[0.35px] text-2xl text-center pb-4">Tu carrera empieza ahora</h1>
         <search class="bg-white rounded-3xl p-4">
             <form action="">
                 <div>
-                    <select name="" id="" class="border-b border-gray-600">
-                        <option value="" disabled selected>Nivel de estudios</option>
+                    <select name="" id="" class="w-full py-4 border-b border-gray-300 text-gray-600">
+                        {
+                            sortedStudies.map(study => {
+                                const isDefault = study.id === 0;
+                                const literal = isDefault ? "Nivel de estudios" : study.value;
+                                return (
+                                    <option value={study.id} disabled={isDefault} selected={isDefault}>
+                                        {study.value}
+                                    </option>
+                                )
+                            })
+                        }
+
+                    </select>
+                </div>
+                <div>
+                    <input name="" id="" 
+                        placeholder="Estudios, puesto, empresa" 
+                        class="w-full py-4 border-b border-gray-300 text-gray-600"
+                    />
+                </div>
+                <div class="mb-8">
+                    <select name="" id="" class="w-full py-4 border-b border-gray-300 text-gray-600">
+                        <option value="" disabled selected>Provincia o poblacion</option>
                         <option value="1">Bachillerato</option>
                     </select>
                 </div>
@@ -19,5 +68,21 @@ import SearchIcon from '@icons/Search.astro';
                 </button>
             </form>
         </search>
+
+        <footer>
+            <h5 class="text-center pt-8 pb-4">Explora trabajos que se adaptan a ti</h5>
+            <div class="flex flex-wrap gap-4 justify-center">
+                {
+                    SHORTCUTS.map(({label, href}) => (
+                        <a 
+                            href={href}
+                            class="bg-white rounded-full p-4 text-primary"
+                        >
+                            {label}
+                        </a>
+                    ))
+                }
+            </div>
+        </footer>
     </div>
 </section>
