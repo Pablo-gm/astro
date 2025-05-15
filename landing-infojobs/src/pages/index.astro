@@ -3,9 +3,12 @@
 import BentoInfo from '@components/BentoInfo.astro';
 import CoolJobs from '@components/CoolJobs.astro';
 import HeroSearch from '@components/HeroSearch.astro';
+import InfographicModal from '@components/InfographicModal.astro';
 import PreFooter from '@components/PreFooter.astro';
 import SocialBest from '@components/SocialBest.astro';
 import Layout from '@layouts/Layout.astro';
+
+import StandsInterviews from "@components/StandsInterviews.astro";
 
 ---
 
@@ -15,4 +18,7 @@ import Layout from '@layouts/Layout.astro';
 	<SocialBest />
 	<CoolJobs />
 	<PreFooter />
+	<InfographicModal />
+
+	<StandsInterviews infographicId="no-experience" />
 </Layout>

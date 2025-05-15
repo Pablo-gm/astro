@@ -1,4 +1,5 @@
 ---
+import SectionContainer from "./SectionContainer.astro";
 import Subtitle from "./Subtitle.astro";
 
 const ARTICLES = [
@@ -17,7 +18,8 @@ const ARTICLES = [
         contentId: "emergent-positions",
         class: "bg-gradient-to-r from-[#ffd2d2] to-[#f9b395] text-ij-red md:col-start-3 md:row-span-2 md:h-full",
         image: "/bento-info/emergent-positions.webp",
-        imageClass: "w-full h-full object-cover object-[center_30%] md:object-center",
+        imageClass:
+            "w-full h-full object-cover object-[center_30%] md:object-center",
         action: "modal",
         track: "blog_emerging_jobs",
     },
@@ -43,99 +45,155 @@ const ARTICLES = [
 ];
 ---
 
-<section class="mx-auto max-w-7xl px-4 w-full">
-    <div class="mx-auto w-full">
-        <Subtitle>Prepárate para ganar</Subtitle>
-        <div
-            class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 md:p-0"
-        >
-            {
-                ARTICLES.map(
-                    ({
-                        class: className,
-                        title,
-                        contentId,
-                        image,
-                        imageClass,
-                        action,
-                        link,
-                        track,
-                    }) =>
-                        action === "link" ? (
-                            <a
-                                href={link}
-                                target="_blank"
+<SectionContainer>
+    <Subtitle>Prepárate para ganar</Subtitle>
+    <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 md:p-0">
+        {
+            ARTICLES.map(
+                ({
+                    class: className,
+                    title,
+                    contentId,
+                    image,
+                    imageClass,
+                    action,
+                    link,
+                    track,
+                }) =>
+                    action === "link" ? (
+                        <a
+                            href={link}
+                            target="_blank"
+                            class:list={[
+                                "aspect-square w-full h-full rounded-2xl overflow-hidden relative group",
+                                className,
+                            ]}
+                            data-track={track}
+                        >
+                            <div
                                 class:list={[
-                                    "aspect-square w-full h-full rounded-2xl overflow-hidden relative group",
-                                    className,
+                                    "absolute inset-0 flex overflow-hidden p-0",
+                                    "items-end justify-end",
                                 ]}
-                                data-track={track}
                             >
-                                <div
+                                <img
+                                    src={image}
+                                    alt=""
                                     class:list={[
-                                        "absolute inset-0 flex overflow-hidden p-0",
-                                        "items-end justify-end",
+                                        "transition-transform duration-300 ease-in-out group-hover:scale-110",
+                                        imageClass,
                                     ]}
-                                >
-                                    <img
-                                        src={image}
-                                        alt=""
-                                        class:list={[
-                                            "transition-transform duration-300 ease-in-out group-hover:scale-110",
-                                            imageClass,
-                                        ]}
-                                    />
-                                </div>
-                                <div class="absolute inset-0 p-4 flex flex-col justify-start items-start z-10">
-                                    <span class="font-medium text-3xl text-left text-pretty tracking-separated pr-3 md:max-w-64">
-                                        {title}
-                                    </span>
-                                </div>
-                            </a>
-                        ) : (
-                            <button
+                                />
+                            </div>
+                            <div class="absolute inset-0 p-4 flex flex-col justify-start items-start z-10">
+                                <span class="font-medium text-3xl text-left text-pretty tracking-separated pr-3 md:max-w-64">
+                                    {title}
+                                </span>
+                            </div>
+                        </a>
+                    ) : (
+                        <button
+                            class:list={[
+                                "aspect-square w-full h-full rounded-2xl overflow-hidden relative group",
+                                className,
+                            ]}
+                            data-content-id={contentId}
+                            data-track={track}
+                        >
+                            <div
                                 class:list={[
-                                    "aspect-square w-full h-full rounded-2xl overflow-hidden relative group",
-                                    className,
+                                    "absolute inset-0 flex overflow-hidden p-0",
+                                    contentId === "selection-process"
+                                        ? "items-end justify-center md:items-stretch md:justify-end"
+                                        : "",
+                                    contentId === "emergent-positions"
+                                        ? "items-start md:items-center"
+                                        : "",
+                                    contentId === "no-experience"
+                                        ? "items-end justify-center"
+                                        : "items-end justify-end",
                                 ]}
-                                data-content-id={contentId}
-                                data-track={track}
                             >
-                                <div
+                                <img
+                                    src={image}
+                                    alt=""
                                     class:list={[
-                                        "absolute inset-0 flex overflow-hidden p-0",
+                                        "transition-transform duration-300 ease-in-out group-hover:scale-110",
+                                        imageClass,
                                         contentId === "selection-process"
-                                            ? "items-end justify-center md:items-stretch md:justify-end"
+                                            ? "max-h-[70%] md:max-h-none md:h-full md:w-auto md:pr-0"
                                             : "",
-                                        contentId === "emergent-positions"
-                                            ? "items-start md:items-center"
-                                            : "",
-                                        contentId === "no-experience"
-                                            ? "items-end justify-center"
-                                            : "items-end justify-end",
                                     ]}
-                                >
-                                    <img
-                                        src={image}
-                                        alt=""
-                                        class:list={[
-                                            "transition-transform duration-300 ease-in-out group-hover:scale-110",
-                                            imageClass,
-                                            contentId === "selection-process"
-                                                ? "max-h-[70%] md:max-h-none md:h-full md:w-auto md:pr-0"
-                                                : "",
-                                        ]}
-                                    />
-                                </div>
-                                <div class="absolute inset-0 p-4 flex flex-col justify-start items-start z-10">
-                                    <span class="font-medium text-3xl text-left text-pretty tracking-separated pr-3 md:max-w-64">
-                                        {title}
-                                    </span>
-                                </div>
-                            </button>
-                        ),
-                )
-            }
-        </div>
+                                />
+                            </div>
+                            <div class="absolute inset-0 p-4 flex flex-col justify-start items-start z-10">
+                                <span class="font-medium text-3xl text-left text-pretty tracking-separated pr-3 md:max-w-64">
+                                    {title}
+                                </span>
+                            </div>
+                        </button>
+                    ),
+            )
+        }
     </div>
-</section>
+</SectionContainer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // modal
+        const $modal = document.getElementById("infographic-modal");
+        const $modalBody = document.getElementById("infographic-modal-body");
+        const $btnModal = document.getElementById("btn-modal");
+        const $body = document.body;
+
+        // buttons bento
+        const $buttons = document.querySelectorAll("button[data-content-id]");
+
+        const openModal = (id: string) => {
+            const contentId = `infographic-${id}`;
+            const content = document.getElementById(contentId);
+
+            if (content && $modalBody) {
+                $modal?.classList.add("modal-active");
+                $modalBody.replaceChildren(content.cloneNode(true));
+
+                $modalBody.firstElementChild?.classList.replace(
+                    "hidden",
+                    "flex",
+                );
+
+                $body.style.overflow = "hidden";
+            }
+        };
+
+        const closeModal = () => {
+            if ($modal?.classList.contains("modal-active")) {
+                $modal?.classList.remove("modal-active");
+            }
+
+            const currentContent = $modalBody?.firstChild;
+
+            if (currentContent) {
+                $modalBody?.removeChild(currentContent);
+            }
+
+            $body.style.overflow = "";
+        };
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        };
+
+        $buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const id = button.getAttribute("data-content-id");
+                if (id) openModal(id);
+            });
+        });
+
+        $btnModal?.addEventListener("click", () => closeModal());
+        document.addEventListener("keydown", handleKeyDown);
+    });
+</script>

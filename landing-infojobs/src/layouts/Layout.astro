@@ -19,18 +19,20 @@ import "../styles/global.css";
 	</head>
 	<body>
 		<Header/>
-		<main>
+		<main class="flex flex-col gap-20 md:gap-24">
 			<slot />
 		</main>
 		<Footer/>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+<style is:global>
+	input:focus-visible,
+	select:focus-visible {
+	  outline: 0;
+	}
+  
+	html {
+	  scroll-behavior: smooth;
 	}
 </style>
