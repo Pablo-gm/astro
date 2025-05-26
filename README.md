@@ -24,6 +24,9 @@ Testing version 4
 ## Nike
 Tailwind practice
 
+## Landing Infojobs
+Landing infojob with Astro. Vanilla JS, Tailwind 4 and typescript.
+
 ## Extras
 Aquoosh app, image optimizer
 svgomg svg optimimzer
