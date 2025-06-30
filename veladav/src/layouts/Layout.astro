@@ -1,9 +1,14 @@
 ---
 import '@/styles/global.css'
 
+import { ClientRouter } from 'astro:transitions'
+import Analytics from '@vercel/analytics/astro'
+
 import Header from '@/sections/Header.astro'
 import Footer from "@/sections/Footer.astro"
 import Sponsors from '@/sections/Sponsors.astro'
+import BannerSponsors from '@/sections/BannerSponsors.astro'
+import Spotlight from '@/components/Spotlight.astro'
 
 import { fixedTitle } from "@/consts/pageTitles"
 
@@ -27,8 +32,47 @@ const {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>La Velada V</title>
+		<title>{title}</title>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link
+      rel="preload"
+      href="/images/hero.avif"
+      as="image"
+      type="image/avif"
+      crossorigin="anonymous"
+    />
+
+    <!-- Preload de las fuentes para que no se vea el cambio de fuente al cargar la pagina -->
+    <link
+      rel="preload"
+      href="/fonts/anisette-medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/anisette-light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/anisette-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/anisette-black.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
 		<meta name="description" content={description} />
 		{canonical && <link rel="canonical" href={canonical} />}
 		{robots && <meta name="robots" content={robots} />}
@@ -93,12 +137,16 @@ const {
         }
       }
     </script>
+    <ClientRouter />
+    <Analytics/>
 	</head>
-	<body> 
+	<body>
+    <Spotlight/>
 		<Header/>
     <main>
 		  <slot />
     </main>
+    <BannerSponsors/>
     <Sponsors/>
 		<Footer />
 	</body>
@@ -110,5 +158,8 @@ const {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+    background: #f19fca;
+    display: flex;
+    flex-direction: column;
 	}
 </style>

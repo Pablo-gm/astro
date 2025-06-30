@@ -2,6 +2,7 @@
 import Hero from '@/sections/Hero.astro';
 import Layout from '../layouts/Layout.astro';
 import Entradas from '@/sections/Entradas.astro';
+import Countdown from '@/sections/Countdown.astro';
 
 const title = 'La Velada del Año V - Evento de boxeo de Ibai Llanos con creadores de contenido'
 const description =
@@ -14,4 +15,5 @@ export const prerender = true
 <Layout title={title} description={description} canonical={canonical}>
   <Hero/>
   <Entradas/>
+  <Countdown timestamp={1753552800000} />
 </Layout>

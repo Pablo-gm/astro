@@ -115,6 +115,7 @@ interface Props {
 
 <script>
   document.addEventListener('astro:page-load', () => {
+
     const boxerCards = document.querySelectorAll('.boxer-card')
     let timeoutId: ReturnType<typeof setTimeout> | null = null
     let versusCard: HTMLAnchorElement | null = null
@@ -128,6 +129,7 @@ interface Props {
         }
 
         const id = singleBoxerCard.getAttribute('data-id')
+
         if (id) {
           // Dispatch a custom event to notify a boxer card id is hovered
           const event = new CustomEvent('boxer-card-hovered', {
