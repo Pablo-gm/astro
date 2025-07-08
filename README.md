@@ -27,6 +27,9 @@ Tailwind practice
 ## Landing Infojobs
 Landing infojob with Astro. Vanilla JS, Tailwind 4 and typescript.
 
+## VeladaV
+La Velada V clone
+
 ## Extras
 Aquoosh app, image optimizer
 svgomg svg optimimzer
