@@ -3,16 +3,17 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --font-sans: 'Outfit Variable', 'sans-serif';
 }
 
 
-  .dev-nav {
-    animation: nav-shadown2 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-  }
+.dev-nav {
+  animation: nav-shadown2 1s linear both;
+  animation-timeline: scroll();
+  animation-range: 0 100px;
+}
 
-  .dev-nav {
-    @apply dark:bg-gray-800/90 bg-white/50 shadow-lg ring-1 backdrop-blur ring-white/10;
-  }
+.dev-nav {
+  @apply dark:bg-gray-800/90 bg-white/50 shadow-lg ring-1 backdrop-blur ring-white/10;
+}
 
