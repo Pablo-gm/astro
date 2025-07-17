@@ -2,20 +2,29 @@
 
 import Layout from '../layouts/Layout.astro';
 import SectionContainer from '@/components/SectionContainer.astro';
+import TitleSection from '@/components/TitleSection.astro';
+
 import Hero from '@/components/Hero.astro';
+import Experience from '@/components/Experience.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout
-    title="Porfolio de midudev - Desarrollador y Programador Web con 15 años de experiencia"
-    description="Contrata a midudev para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones únicas."
+    title="Pablo Gomez UI Engineer"
+    description="More than 10 years crafting user friendly interfaces."
 >
     <main>
         <SectionContainer class="py-16 md:py-36">
             <Hero>
             </Hero>
+        </SectionContainer>
+        <SectionContainer id="experiencia">
+            <TitleSection>
+                Work Experience
+            </TitleSection>
+            <Experience />
         </SectionContainer>
     </main>
 </Layout>

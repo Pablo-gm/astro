@@ -1,0 +1,44 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Dec 2018 - Now",
+    title: "UI Engineer",
+    company: "Algebraix",
+    description: [
+            "Coordination and development of the corporate component system based on Material Design M2", 
+            "Implemented the new component system on the views of an LMS platform and app to improve the user experience.Meeting with around six SCRUM teams to ensure the UI design standard in each sprint.",
+            "Supporting SCRUM teams by delivering mock-ups, conducting UI reviews, and writing code as necessary.",
+        ],
+    link: "",
+  },
+  {
+    date: "Sep 2014 - Dec 2018",
+    title: "Fron-End Developer",
+    company: "Algebraix",
+    description: [
+            "Coding, mock-up creation and UI revision as demanded for a large education management web platform and app",
+            "Complete overhaul of the UI for web and app",
+            "Design and development of a corporate website"
+        ]
+  },
+  {
+    date: "Oct 2012 - Aug 2013",
+    title: "Programmer",
+    company: "Internacional de Sistemas",
+    description: [
+            "Developing and maintaining projects, ASP.NET applications, and managing databases for clients in the banking sector"
+        ]
+  },
+]
+---
+
+<ol class="relative mt-8">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
