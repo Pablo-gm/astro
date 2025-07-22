@@ -17,3 +17,19 @@
   @apply dark:bg-gray-800/90 bg-white/50 shadow-lg ring-1 backdrop-blur ring-white/10;
 }
 
+
+.pattern-dots {
+  position: relative;
+}
+
+.pattern-dots::before {
+     content: " ";
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: calc(10 * 1px) calc(10 * 1px);
+  left: -16px;
+  bottom: -20px;
+}
