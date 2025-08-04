@@ -1,0 +1,90 @@
+---
+import Github from '@/components/icons/GitHub.astro';
+import Nextjs from '@/components/icons/Sun.astro';
+import Tailwind from '@/components/icons/Tools.astro';
+import Link from '@/components/icons/Behance.astro';
+import LinkButton from '@/components/LinkButton.astro';
+
+const TAGS = {
+    NEXT: {
+        name: "Next.js",
+        class: "bg-black text-white",
+        icon: Nextjs,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-[#003159] text-white",
+        icon: Tailwind,
+    },
+}
+
+const PROJECTS = [
+    {
+        title: "Koktel - An UX writing project",
+        description:
+        "An app designed for individuals interested in learning about amateur drink creation and for hosts of private social gatherings who want to impress their guests.",
+        link: "https://www.behance.net/gallery/229333837/Koktel-Bartender-App",
+        github: "https://github.com/pheralb/svgl",
+        image: "/projects/Koktel.webp",
+        tags: [TAGS.NEXT, TAGS.TAILWIND],
+    },
+    {
+        title: "Calma",
+        description:
+        "Calma is an app to monitor daily mood, generate a mood history, and receive stress management tips, all with the goal of raising user awareness about their mental health.",
+        link: "https://adventjs.dev",
+        image: "/projects/Calma.webp",
+        tags: [TAGS.NEXT, TAGS.TAILWIND],
+    },
+]
+---
+
+<div class="md:columns-2 lg:columns-3 gap-10 space-y-10">
+    {
+        PROJECTS.map(({ image, title, description, tags, link, github }) => (
+        <article class="flex flex-col p-4 gap-4 bg-amber-200 break-inside-avoid">
+            <div class="w-full">
+                <div class=" overflow-clip rounded-xl">
+                    <img alt="Project Koktel Thumbnail" class="" loading="lazy" src={image} />
+                </div>
+            </div>
+    
+            <div class="w-full">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                    {title}
+                </h3>
+                <div class="flex flex-wrap mt-2">
+                    <ul class="flex flex-row mb-2 gap-x-2">
+                        {tags.map((tag) => (
+                        <li>
+                            <span
+                            class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                            >
+                            <tag.icon class="size-4" />
+                                {tag.name}
+                            </span>
+                        </li>
+                        ))}
+                    </ul>
+            
+                    <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+                    <footer class="flex items-end justify-start mt-4 gap-x-4">
+                        {github && (
+                            <LinkButton href={github}>
+                                <Github class="size-6" />
+                                Code
+                            </LinkButton>
+                        )}
+                        {link && (
+                            <LinkButton href={link}>
+                                <Link class="size-4" />
+                                Preview
+                            </LinkButton>
+                        )}
+                    </footer>
+                </div>
+            </div>
+        </article>
+    ))
+    }
+</div>

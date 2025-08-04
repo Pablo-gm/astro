@@ -7,6 +7,7 @@ import TitleSection from '@/components/TitleSection.astro';
 import Hero from '@/components/Hero.astro';
 import Experience from '@/components/Experience.astro';
 import Skills from '@/components/Skills.astro';
+import Projects from '@/components/Projects.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -21,17 +22,23 @@ import Skills from '@/components/Skills.astro';
             <Hero>
             </Hero>
         </SectionContainer>
-        <SectionContainer id="experiencia" class="mb-16"}>
+        <SectionContainer id="experiencia" class="mb-24"}>
             <TitleSection>
                 Work Experience
             </TitleSection>
             <Experience />
         </SectionContainer>
-        <SectionContainer id="skills">
+        <SectionContainer id="skills" class="mb-24">
             <TitleSection>
                 Skills & Tools
             </TitleSection>
             <Skills />
+        </SectionContainer>
+        <SectionContainer id="work">
+            <TitleSection>
+                Featured Work
+            </TitleSection>
+            <Projects/>
         </SectionContainer>
     </main>
 </Layout>
