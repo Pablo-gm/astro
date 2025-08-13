@@ -6,7 +6,7 @@ import SystemIcon from "./icons/System.astro"
 const THEMES = ["Light", "Dark", "System"]
 ---
 
-<div class="relative ml-1 mr-1">
+<li class="relative ml-1 mr-1">
   <button
     transition:persist
     id="theme-toggle-btn"
@@ -38,7 +38,7 @@ const THEMES = ["Light", "Dark", "System"]
       }
     </ul>
   </div>
-</div>
+</li>
 
 <style>
   #themes-menu.open {
