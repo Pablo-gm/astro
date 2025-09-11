@@ -33,3 +33,4 @@ La Velada V clone
 ## Extras
 Aquoosh app, image optimizer
 svgomg svg optimimzer
+https://github.com/ixkaito/astro-relative-links  for static builds

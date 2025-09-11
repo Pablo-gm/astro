@@ -1,0 +1,43 @@
+---
+import Logo from "../assets/images/logo.svg";
+import IconClose from "../assets/images/icon-menu-close.svg";
+import IconOpen from "../assets/images/icon-menu.svg";
+import NavbarItems from "./NavbarItems.astro";
+---
+
+<nav class="flex justify-between items-center mb-6">
+    <a href="/">
+        <Logo />
+    </a>
+    <NavbarItems isHorizontal={true} />
+    <IconOpen id="open-btn" class="cursor-pointer lg:hidden" />
+    <div id="menu-modal" class="bg-black/50 fixed inset-0 hidden">
+        <div
+            class="bg-Off-white absolute right-0 h-screen flex flex-col items-end px-[21px] py-[27px]"
+        >
+            <IconClose id="close-btn" class="cursor-pointer" />
+            <NavbarItems />
+        </div>
+    </div>
+</nav>
+
+<script>
+    const closeBtn = document.getElementById("close-btn");
+    const openBtn = document.getElementById("open-btn");
+    const modal = document.getElementById("menu-modal");
+    const menuItems = document.querySelectorAll("a");
+
+    closeBtn?.addEventListener("click", () => {
+        modal?.classList.add("hidden");
+    });
+
+    openBtn?.addEventListener("click", () => {
+        modal?.classList.remove("hidden");
+    });
+
+    menuItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            modal?.classList.add("hidden");
+        });
+    });
+</script>
