@@ -1,0 +1,19 @@
+---
+import { articles } from "../common/articles";
+import NewArticle from "./NewArticle.astro";
+
+interface Props {
+    styles?: string;
+}
+
+const {styles} = Astro.props;
+---
+
+<section class=`bg-Very-dark-blue text-Off-white py-4 px-6 mb-16 ${styles}` >
+    <h1 class="text-Soft-orange font-bold text-[2rem]">New</h1>
+    {
+        articles.slice(0,3).map((article) =>(
+            <NewArticle {...article} />
+        ))
+    }
+</section>
