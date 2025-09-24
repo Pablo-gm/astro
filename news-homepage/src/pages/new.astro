@@ -1,0 +1,14 @@
+---
+import { articles } from "../common/articles"
+import NewArticle from "../components/NewArticle.astro"
+import Layout from "../layouts/Layout.astro"
+
+---
+
+<Layout>
+    <div class="xl:grid xl:grid-cols-2 xl:gap-6">
+        {
+            articles.map(article => <NewArticle {...article} />)
+        }
+    </div>
+</Layout>
